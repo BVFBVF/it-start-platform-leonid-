@@ -24,6 +24,17 @@ export default function Home() {
             Глобальный поиск по сотрудникам, задачам и наставникам
           </p>
         </div>
+        <div>
+          <Link
+            href="/activity"
+            className="text-lg font-medium text-indigo-600 hover:text-indigo-700 hover:underline"
+          >
+            Лента активности
+          </Link>
+          <p className="mt-1 text-sm text-slate-600">
+            Хронология событий на платформе с фильтрацией и загрузкой
+          </p>
+        </div>
       </div>
     </main>
   );
