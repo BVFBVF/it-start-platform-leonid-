@@ -26,13 +26,14 @@ export default function Home() {
         </div>
         <div>
           <Link
-            href="/activity"
+            href="/team"
             className="text-lg font-medium text-indigo-600 hover:text-indigo-700 hover:underline"
           >
-            Лента активности
+            Команда
           </Link>
           <p className="mt-1 text-sm text-slate-600">
-            Хронология событий на платформе с фильтрацией и загрузкой
+            Просмотр команды в виде дерева менторов и джунов или в виде таблицы
+            всех сотрудников
           </p>
         </div>
       </div>
