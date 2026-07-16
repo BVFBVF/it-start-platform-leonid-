@@ -26,6 +26,18 @@ export default function Home() {
         </div>
         <div>
           <Link
+            href="/activity"
+            className="text-lg font-medium text-indigo-600 hover:text-indigo-700 hover:underline"
+          >
+            Активность
+          </Link>
+          <p className="mt-1 text-sm text-slate-600">
+            Просмотр активности сотрудников, включая задачи, комментарии и
+            изменения в профилях
+          </p>
+        </div>
+        <div>
+          <Link
             href="/team"
             className="text-lg font-medium text-indigo-600 hover:text-indigo-700 hover:underline"
           >
