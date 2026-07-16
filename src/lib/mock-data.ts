@@ -31,8 +31,6 @@ export const tasks = [
   },
 ];
 
-// TODO: Подключить к реальному API для получения менторов
-// Пока используются mock-данные с реалистичными именами и специализациями
 export const mentors: Mentor[] = [
   {
     id: 1,
@@ -114,5 +112,74 @@ export const employees: Employee[] = [
     readinessScore: 77,
     task: "Написать документацию по API",
     photo: "/images/junior-sergey.jpg",
+  },
+];
+
+export interface ActivityEvent {
+  id: number;
+  type:
+    | "employee_added"
+    | "status_changed"
+    | "review_created"
+    | "task_completed"
+    | "pr_merged"
+    | "ready_for_outstaff";
+  timestamp: string;
+  actorName: string;
+  actorRole?: string;
+  targetName?: string;
+  statusFrom?: string;
+  statusTo?: string;
+  taskTitle?: string;
+  prTitle?: string;
+  comment?: string;
+}
+
+export const activityEvents: ActivityEvent[] = [
+  {
+    id: 1,
+    type: "employee_added",
+    timestamp: "2026-07-08T11:05:00.000Z",
+    actorName: "Иван Иванов",
+    actorRole: "Руководитель",
+    targetName: "Мария Смирнова",
+  },
+  {
+    id: 2,
+    type: "status_changed",
+    timestamp: "2026-07-08T09:30:00.000Z",
+    actorName: "Алексей Петров",
+    actorRole: "HR",
+    targetName: "Виктория Кузнецова",
+    statusFrom: "active",
+    statusTo: "blocked",
+  },
+  {
+    id: 3,
+    type: "review_created",
+    timestamp: "2026-07-07T18:15:00.000Z",
+    actorName: "Настя Ольхова",
+    actorRole: "Ментор",
+    taskTitle: "Реализовать страницу поиска",
+  },
+  {
+    id: 4,
+    type: "task_completed",
+    timestamp: "2026-07-07T17:00:00.000Z",
+    actorName: "Сергей Соколов",
+    taskTitle: "Реализовать Dashboard",
+  },
+  {
+    id: 5,
+    type: "pr_merged",
+    timestamp: "2026-07-06T14:40:00.000Z",
+    actorName: "Елена Захарова",
+    prTitle: "fix/ui-bugs",
+  },
+  {
+    id: 6,
+    type: "ready_for_outstaff",
+    timestamp: "2026-07-06T12:10:00.000Z",
+    actorName: "Дмитрий Козлов",
   },
 ];
