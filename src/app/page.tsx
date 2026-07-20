@@ -48,6 +48,18 @@ export default function Home() {
             всех сотрудников
           </p>
         </div>
+        <div>
+          <Link
+            href="/calendar"
+            className="text-lg font-medium text-indigo-600 hover:text-indigo-700 hover:underline"
+          >
+            Календарь дедлайнов
+          </Link>
+          <p className="mt-1 text-sm text-slate-600">
+            Просмотр дедлайнов задач по датам с выделением по приоритету и
+            список ближайших сроков
+          </p>
+        </div>
       </div>
     </main>
   );

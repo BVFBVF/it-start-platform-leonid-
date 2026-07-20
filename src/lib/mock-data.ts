@@ -13,21 +13,112 @@ export interface Employee {
   status: "active" | "blocked" | "in_review" | "ready_for_outstaff";
   readinessScore: number;
   task: string;
-  photo?: string;
 }
 
-export const tasks = [
+export interface Task {
+  id: number;
+  title: string;
+  dueDate: string;
+  priority: "high" | "medium" | "low";
+  assigneeId: number;
+}
+
+export interface EmployeeHistoryEvent {
+  id: number;
+  employeeId: number;
+  type:
+    | "status_changed"
+    | "score_updated"
+    | "task_assigned"
+    | "review_received"
+    | "pr_created";
+  timestamp: string;
+  title: string;
+  description: string;
+  oldValue?: string | number;
+  newValue?: string | number;
+  taskTitle?: string;
+  reviewTitle?: string;
+  prTitle?: string;
+}
+
+export const tasks: Task[] = [
   {
     id: 10,
     title: "Реализовать Dashboard",
+    dueDate: "2026-07-20",
+    priority: "high",
+    assigneeId: 56,
   },
   {
     id: 13,
     title: "Реализовать страницу поиска",
+    dueDate: "2026-07-18",
+    priority: "medium",
+    assigneeId: 57,
   },
   {
     id: 14,
     title: "Реализовать страницу профиля",
+    dueDate: "2026-07-25",
+    priority: "low",
+    assigneeId: 58,
+  },
+  {
+    id: 15,
+    title: "Доработать компонент профиля",
+    dueDate: "2026-07-19",
+    priority: "high",
+    assigneeId: 59,
+  },
+  {
+    id: 16,
+    title: "Подготовить отчет по sprint-review",
+    dueDate: "2026-07-17",
+    priority: "high",
+    assigneeId: 60,
+  },
+  {
+    id: 17,
+    title: "Провести ревью макета",
+    dueDate: "2026-07-21",
+    priority: "medium",
+    assigneeId: 59,
+  },
+  {
+    id: 18,
+    title: "Настроить CI/CD pipeline",
+    dueDate: "2026-07-24",
+    priority: "high",
+    assigneeId: 57,
+  },
+  {
+    id: 19,
+    title: "Написать юнит-тесты",
+    dueDate: "2026-07-22",
+    priority: "medium",
+    assigneeId: 61,
+  },
+  {
+    id: 20,
+    title: "Оптимизировать загрузку данных",
+    dueDate: "2026-07-23",
+    priority: "low",
+    assigneeId: 56,
+  },
+  {
+    id: 21,
+    title: "Доработать мобильную версию",
+    dueDate: "2026-07-27",
+    priority: "medium",
+    assigneeId: 58,
+  },
+  {
+    id: 22,
+    title: "Обновить документацию API",
+    dueDate: "2026-07-26",
+    priority: "low",
+    assigneeId: 60,
   },
 ];
 
@@ -61,7 +152,6 @@ export const employees: Employee[] = [
     status: "active",
     readinessScore: 82,
     task: "Реализовать Dashboard",
-    photo: "/images/junior-andrey.jpg",
   },
   {
     id: 57,
@@ -71,7 +161,6 @@ export const employees: Employee[] = [
     status: "blocked",
     readinessScore: 48,
     task: "Реализовать страницу поиска",
-    photo: "/images/junior-boris.jpg",
   },
   {
     id: 58,
@@ -81,7 +170,6 @@ export const employees: Employee[] = [
     status: "in_review",
     readinessScore: 69,
     task: "Реализовать страницу профиля",
-    photo: "/images/junior-vladimir.jpg",
   },
   {
     id: 59,
@@ -91,7 +179,6 @@ export const employees: Employee[] = [
     status: "active",
     readinessScore: 91,
     task: "Доработать компонент профиля",
-    photo: "/images/junior-maria.jpg",
   },
   {
     id: 60,
@@ -101,7 +188,6 @@ export const employees: Employee[] = [
     status: "ready_for_outstaff",
     readinessScore: 84,
     task: "Подготовить тестовое API",
-    photo: "/images/junior-natalia.jpg",
   },
   {
     id: 61,
@@ -111,7 +197,142 @@ export const employees: Employee[] = [
     status: "active",
     readinessScore: 77,
     task: "Написать документацию по API",
-    photo: "/images/junior-sergey.jpg",
+  },
+];
+
+export const employeeHistoryEvents: EmployeeHistoryEvent[] = [
+  {
+    id: 1,
+    employeeId: 56,
+    type: "status_changed",
+    timestamp: "2026-07-02T09:30:00.000Z",
+    title: "Статус изменён",
+    description:
+      "Андрей переведён в активный статус после прохождения испытания",
+    oldValue: "blocked",
+    newValue: "active",
+  },
+  {
+    id: 2,
+    employeeId: 56,
+    type: "score_updated",
+    timestamp: "2026-07-05T14:00:00.000Z",
+    title: "Score обновлён",
+    description: "Readiness score вырос с 72 до 82",
+    oldValue: 72,
+    newValue: 82,
+  },
+  {
+    id: 3,
+    employeeId: 56,
+    type: "task_assigned",
+    timestamp: "2026-07-08T10:00:00.000Z",
+    title: "Задача назначена",
+    description: "Назначена задача на реализацию dashboard",
+    taskTitle: "Реализовать Dashboard",
+  },
+  {
+    id: 4,
+    employeeId: 57,
+    type: "status_changed",
+    timestamp: "2026-07-01T11:15:00.000Z",
+    title: "Статус изменён",
+    description: "Борис переведён в статус blocked после замечаний по качеству",
+    oldValue: "active",
+    newValue: "blocked",
+  },
+  {
+    id: 5,
+    employeeId: 57,
+    type: "review_received",
+    timestamp: "2026-07-07T16:20:00.000Z",
+    title: "Ревью получено",
+    description: "Получено ревью по задаче поиска",
+    reviewTitle: "Ревью по странице поиска",
+  },
+  {
+    id: 6,
+    employeeId: 57,
+    type: "pr_created",
+    timestamp: "2026-07-10T13:40:00.000Z",
+    title: "PR создан",
+    description: "Создан PR для задачи поиска",
+    prTitle: "feat/search-page",
+  },
+  {
+    id: 7,
+    employeeId: 58,
+    type: "score_updated",
+    timestamp: "2026-07-03T12:10:00.000Z",
+    title: "Score обновлён",
+    description: "Readiness score вырос с 61 до 69",
+    oldValue: 61,
+    newValue: 69,
+  },
+  {
+    id: 8,
+    employeeId: 58,
+    type: "task_assigned",
+    timestamp: "2026-07-06T09:45:00.000Z",
+    title: "Задача назначена",
+    description: "Назначена задача по странице профиля",
+    taskTitle: "Реализовать страницу профиля",
+  },
+  {
+    id: 9,
+    employeeId: 59,
+    type: "status_changed",
+    timestamp: "2026-07-04T08:30:00.000Z",
+    title: "Статус изменён",
+    description: "Мария переведена в активный статус",
+    oldValue: "in_review",
+    newValue: "active",
+  },
+  {
+    id: 10,
+    employeeId: 59,
+    type: "review_received",
+    timestamp: "2026-07-09T15:05:00.000Z",
+    title: "Ревью получено",
+    description: "Получено ревью по компоненту профиля",
+    reviewTitle: "Ревью по компоненту профиля",
+  },
+  {
+    id: 11,
+    employeeId: 60,
+    type: "score_updated",
+    timestamp: "2026-07-08T17:20:00.000Z",
+    title: "Score обновлён",
+    description: "Readiness score вырос с 77 до 84",
+    oldValue: 77,
+    newValue: 84,
+  },
+  {
+    id: 12,
+    employeeId: 60,
+    type: "pr_created",
+    timestamp: "2026-07-12T10:50:00.000Z",
+    title: "PR создан",
+    description: "Создан PR по API и тестам",
+    prTitle: "feat/api-tests",
+  },
+  {
+    id: 13,
+    employeeId: 61,
+    type: "task_assigned",
+    timestamp: "2026-07-11T09:10:00.000Z",
+    title: "Задача назначена",
+    description: "Назначена задача по документации API",
+    taskTitle: "Написать документацию по API",
+  },
+  {
+    id: 14,
+    employeeId: 61,
+    type: "review_received",
+    timestamp: "2026-07-14T18:40:00.000Z",
+    title: "Ревью получено",
+    description: "Получено ревью по документации",
+    reviewTitle: "Ревью по документации API",
   },
 ];
 
@@ -132,7 +353,6 @@ export interface ActivityEvent {
   statusTo?: string;
   taskTitle?: string;
   prTitle?: string;
-  comment?: string;
 }
 
 export const activityEvents: ActivityEvent[] = [
