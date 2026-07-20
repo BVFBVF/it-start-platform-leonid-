@@ -13,21 +13,93 @@ export interface Employee {
   status: "active" | "blocked" | "in_review" | "ready_for_outstaff";
   readinessScore: number;
   task: string;
-  photo?: string;
 }
 
-export const tasks = [
+export interface Task {
+  id: number;
+  title: string;
+  dueDate: string;
+  priority: "high" | "medium" | "low";
+  assigneeId: number;
+}
+
+export const tasks: Task[] = [
   {
     id: 10,
     title: "Реализовать Dashboard",
+    dueDate: "2026-07-20",
+    priority: "high",
+    assigneeId: 56,
   },
   {
     id: 13,
     title: "Реализовать страницу поиска",
+    dueDate: "2026-07-18",
+    priority: "medium",
+    assigneeId: 57,
   },
   {
     id: 14,
     title: "Реализовать страницу профиля",
+    dueDate: "2026-07-25",
+    priority: "low",
+    assigneeId: 58,
+  },
+  {
+    id: 15,
+    title: "Доработать компонент профиля",
+    dueDate: "2026-07-19",
+    priority: "high",
+    assigneeId: 59,
+  },
+  {
+    id: 16,
+    title: "Подготовить отчет по sprint-review",
+    dueDate: "2026-07-17",
+    priority: "high",
+    assigneeId: 60,
+  },
+  {
+    id: 17,
+    title: "Провести ревью макета",
+    dueDate: "2026-07-21",
+    priority: "medium",
+    assigneeId: 59,
+  },
+  {
+    id: 18,
+    title: "Настроить CI/CD pipeline",
+    dueDate: "2026-07-24",
+    priority: "high",
+    assigneeId: 57,
+  },
+  {
+    id: 19,
+    title: "Написать юнит-тесты",
+    dueDate: "2026-07-22",
+    priority: "medium",
+    assigneeId: 61,
+  },
+  {
+    id: 20,
+    title: "Оптимизировать загрузку данных",
+    dueDate: "2026-07-23",
+    priority: "low",
+    assigneeId: 56,
+  },
+  {
+    id: 21,
+    title: "Доработать мобильную версию",
+    dueDate: "2026-07-27",
+    priority: "medium",
+    assigneeId: 58,
+  },
+  {
+    id: 22,
+    title: "Обновить документацию API",
+    dueDate: "2026-07-26",
+    priority: "low",
+    assigneeId: 60,
   },
 ];
 
@@ -61,7 +133,6 @@ export const employees: Employee[] = [
     status: "active",
     readinessScore: 82,
     task: "Реализовать Dashboard",
-    photo: "/images/junior-andrey.jpg",
   },
   {
     id: 57,
@@ -71,7 +142,6 @@ export const employees: Employee[] = [
     status: "blocked",
     readinessScore: 48,
     task: "Реализовать страницу поиска",
-    photo: "/images/junior-boris.jpg",
   },
   {
     id: 58,
@@ -81,7 +151,6 @@ export const employees: Employee[] = [
     status: "in_review",
     readinessScore: 69,
     task: "Реализовать страницу профиля",
-    photo: "/images/junior-vladimir.jpg",
   },
   {
     id: 59,
@@ -91,7 +160,6 @@ export const employees: Employee[] = [
     status: "active",
     readinessScore: 91,
     task: "Доработать компонент профиля",
-    photo: "/images/junior-maria.jpg",
   },
   {
     id: 60,
@@ -101,7 +169,6 @@ export const employees: Employee[] = [
     status: "ready_for_outstaff",
     readinessScore: 84,
     task: "Подготовить тестовое API",
-    photo: "/images/junior-natalia.jpg",
   },
   {
     id: 61,
@@ -111,7 +178,6 @@ export const employees: Employee[] = [
     status: "active",
     readinessScore: 77,
     task: "Написать документацию по API",
-    photo: "/images/junior-sergey.jpg",
   },
 ];
 
@@ -132,7 +198,6 @@ export interface ActivityEvent {
   statusTo?: string;
   taskTitle?: string;
   prTitle?: string;
-  comment?: string;
 }
 
 export const activityEvents: ActivityEvent[] = [

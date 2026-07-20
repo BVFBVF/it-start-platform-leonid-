@@ -21,6 +21,8 @@ export interface Task {
   title: string;
   assigneeId?: number;
   status?: string;
+  dueDate?: string;
+  priority?: "high" | "medium" | "low";
 }
 
 export type SearchResultType = "employee" | "task" | "mentor";
