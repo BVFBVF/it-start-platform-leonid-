@@ -60,6 +60,18 @@ export default function Home() {
             список ближайших сроков
           </p>
         </div>
+        <div>
+          <Link
+            href="/time"
+            className="text-lg font-medium text-indigo-600 hover:text-indigo-700 hover:underline"
+          >
+            Трекер рабочего времени
+          </Link>
+          <p className="mt-1 text-sm text-slate-600">
+            Логирование рабочих сессий, суммарный учёт часов и аналитика по
+            сотрудникам
+          </p>
+        </div>
       </div>
     </main>
   );

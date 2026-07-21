@@ -23,6 +23,15 @@ export interface Task {
   assigneeId: number;
 }
 
+export interface WorkSession {
+  id: number;
+  employeeId: number;
+  date: string;
+  startTime: string;
+  endTime: string;
+  description: string;
+}
+
 export const tasks: Task[] = [
   {
     id: 10,
@@ -178,6 +187,65 @@ export const employees: Employee[] = [
     status: "active",
     readinessScore: 77,
     task: "Написать документацию по API",
+  },
+];
+
+export const workSessions: WorkSession[] = [
+  {
+    id: 1,
+    employeeId: 56,
+    date: "2026-07-20",
+    startTime: "09:00",
+    endTime: "13:00",
+    description: "Реализация dashboard и ревью задач",
+  },
+  {
+    id: 2,
+    employeeId: 56,
+    date: "2026-07-21",
+    startTime: "10:00",
+    endTime: "12:30",
+    description: "Подготовка интерфейса и фиксы",
+  },
+  {
+    id: 3,
+    employeeId: 57,
+    date: "2026-07-20",
+    startTime: "08:30",
+    endTime: "12:00",
+    description: "Разбор багов и правки поиска",
+  },
+  {
+    id: 4,
+    employeeId: 58,
+    date: "2026-07-19",
+    startTime: "11:00",
+    endTime: "15:00",
+    description: "Работа над страницей профиля",
+  },
+  {
+    id: 5,
+    employeeId: 59,
+    date: "2026-07-21",
+    startTime: "09:30",
+    endTime: "14:00",
+    description: "Сборка UI и проверка компонента",
+  },
+  {
+    id: 6,
+    employeeId: 60,
+    date: "2026-07-18",
+    startTime: "13:00",
+    endTime: "17:30",
+    description: "Тестирование API и подготовка данных",
+  },
+  {
+    id: 7,
+    employeeId: 61,
+    date: "2026-07-21",
+    startTime: "12:00",
+    endTime: "15:30",
+    description: "Документация и ревью API",
   },
 ];
 
